@@ -25,11 +25,3 @@ slackclient==2.7.1
 typing-extensions==3.7.4.2
 yarl==1.4.2
 zope.interface==4.5.0
-Flask-Assets==0.12
-Flask-Login==0.4.1
-Flask-Mail==0.9.1
-flask-mongoengine==0.9.5
-Flask-SQLAlchemy==2.3.2
-Flask-Static-Compress==1.0.2
-Flask-User==1.0.1.5
-Flask-WTF==0.14.2
