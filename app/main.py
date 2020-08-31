@@ -6,10 +6,6 @@ from app.db import get_db
 
 @app.route('/')
 def index():
-    app.logger.info('logged in successfully')
-    result = get_db().execute("SELECT * from players")
-    names = [row.username for row in result]
-    logging.warning(names)
     return render_template('index.html')
 
 
