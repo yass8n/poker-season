@@ -13,7 +13,8 @@ GROUP BY players.id"""
     return get_db().execute(sql)
 
 # WITH placement_users as (
-# SELECT SUM(placement_points.points) as total_points,
+# SELECT ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS ranking,
+# SUM(placement_points.points) as total_points,
 # players.username,
 # players.id as player_id,
 # count(*) as number_of_games_cashed,
@@ -24,6 +25,7 @@ GROUP BY players.id"""
 # JOIN placement_points on placement_points.player_count = games.player_count AND games_placements.placement = placement_points.placement
 # WHERE seasons.id = 1
 # GROUP BY players.id
+# ORDER BY total_points DESC
 # ), no_placement_users as (
 # SELECT 0 as total_points,
 # players.username,
@@ -37,10 +39,8 @@ GROUP BY players.id"""
 # )
 # )
 #
-# SELECT total_points, username, number_of_games_cashed, placements from placement_users
+# SELECT ranking, total_points, username, number_of_games_cashed, placements from placement_users
 #
-# UNION
-#
-# SELECT total_points, username, number_of_games_cashed, placements from no_placement_users
-#
-#
+
+
+
