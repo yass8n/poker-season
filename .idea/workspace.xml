@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4443ac75-f58a-4ad6-a5fe-980014a532fc" name="Default Changelist" comment="" />
+    <list default="true" id="4443ac75-f58a-4ad6-a5fe-980014a532fc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,10 +62,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="579" y="253" width="689" height="472" key="find.popup" timestamp="1598844956107">
+    <state x="579" y="253" width="689" height="472" key="find.popup" timestamp="1598846083048">
       <screen x="0" y="23" width="1680" height="991" />
     </state>
-    <state x="579" y="253" width="689" height="472" key="find.popup/0.23.1680.991@0.23.1680.991" timestamp="1598844956107" />
+    <state x="579" y="253" width="689" height="472" key="find.popup/0.23.1680.991@0.23.1680.991" timestamp="1598846083048" />
     <state x="589" y="227" width="670" height="676" key="search.everywhere.popup" timestamp="1598845154210">
       <screen x="0" y="23" width="1680" height="991" />
     </state>
