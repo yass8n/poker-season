@@ -1,7 +1,16 @@
-from flask import Flask
-
+from flask import Flask, render_template
+import logging
 app = Flask(__name__)
+from app.db import get_db
 
-@app.route("/")
-def home_view():
-		return "<h1>Welcome to Geeks for Geeks FROM YASEEN</h1>"
+@app.route('/')
+def index():
+    app.logger.info('logged in successfully')
+    result = get_db().execute("SELECT * from players")
+    names = [row.username for row in result]
+    logging.warning(names)
+    return render_template('index.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
