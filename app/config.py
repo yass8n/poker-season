@@ -3,10 +3,9 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 from app.main import app
 
 class Config(object):
-    DEBUG = False
-    TESTING = False
+    DEBUG = True
+    TESTING = True
     CSRF_ENABLED = True
-    SECRET_KEY = 'this-really-needs-to-be-changed'
     SQLALCHEMY_DATABASE_URI = os.environ['POKER_DATABASE_URL']
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
