@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4443ac75-f58a-4ad6-a5fe-980014a532fc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/helpers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/poker_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/poker_db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/info.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +60,7 @@
       <updated>1598836169104</updated>
       <workItem from="1598836172400" duration="2289000" />
       <workItem from="1598929378143" duration="570000" />
-      <workItem from="1599041286944" duration="2831000" />
+      <workItem from="1599041286944" duration="4662000" />
     </task>
     <servers />
   </component>
@@ -69,10 +68,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="579" y="253" width="689" height="472" key="find.popup" timestamp="1599044372051">
+    <state x="579" y="253" width="689" height="472" key="find.popup" timestamp="1599045968999">
       <screen x="0" y="23" width="1680" height="991" />
     </state>
-    <state x="579" y="253" width="689" height="472" key="find.popup/0.23.1680.991@0.23.1680.991" timestamp="1599044372051" />
+    <state x="579" y="253" width="689" height="472" key="find.popup/0.23.1680.991@0.23.1680.991" timestamp="1599045968999" />
     <state x="589" y="227" width="670" height="676" key="search.everywhere.popup" timestamp="1599043886114">
       <screen x="0" y="23" width="1680" height="991" />
     </state>
