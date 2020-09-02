@@ -7,9 +7,9 @@ class Config(object):
     TESTING = True
     CSRF_ENABLED = True
     SQLALCHEMY_DATABASE_URI = os.environ['POKER_DATABASE_URL']
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+    app.config['FLASK_DEBUG'] = True
 
 
 class ProductionConfig(Config):

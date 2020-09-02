@@ -1,3 +1,5 @@
 pipenv shell
 flask run
 heroku logs -t
+export FLASK_DEBUG=ON
+export FLASK_ENV=development

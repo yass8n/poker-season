@@ -2,14 +2,26 @@ from app.db import get_db, query_to_dict, db_fetch
 
 def get_season_results(season_id: int):
     sql = f"""
-         SELECT SUM(placement_points.points), players.username, count(*) as number_of_games_played, GROUP_CONCAT(placement_points.placement) as placements
+SELECT SUM(placement_points.points) as total_points,
+players.username,
+players.id as player_id,
+seasons.id as season_id,
+GROUP_CONCAT(
+CASE
+    WHEN placement_points.placement = 1 THEN '1st'
+    WHEN placement_points.placement = 2 THEN '2nd'
+    WHEN placement_points.placement = 3 THEN '3rd'
+    ELSE CONCAT(placement_points.placement, 'th')
+END
+) as placements
 FROM games JOIN seasons on games.season_id = seasons.id
 JOIN games_placements on games_placements.game_id = games.id
 JOIN players on players.id = games_placements.player_id
 JOIN placement_points on placement_points.player_count = games.player_count AND games_placements.placement = placement_points.placement
 WHERE seasons.id = {season_id}
-GROUP BY players.id"""
-    return get_db().execute(sql)
+GROUP BY players.id
+ORDER BY total_points DESC"""
+    return db_fetch(sql)
 
 def populate_game_results(usernames_and_placements: dict, season_id: int, game_number: int):
     games_sql = f"""

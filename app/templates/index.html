@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h1>Index</h1>
-<p>I am overriding the content block in base.html</p>
+<h1>Poker Season #{{season_number}}</h1>
+<table class="table table-hover">
+   <thead>
+      <tr>
+         <th scope="col">#</th>
+         <th scope="col">Total Points</th>
+         <th scope="col">Username</th>
+         <th scope="col">Placements</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for item in data %}
+      <tr>
+         <th scope="row">1</th>
+         <td>{{item.total_points}}</td>
+         <td>{{item.username}}</td>
+         <td>{{item.placements}}</td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
 {% endblock content %}
