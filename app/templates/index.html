@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Poker Season #{{season_number}}</h1>
+<h1 class="text-center">Poker Season #{{season_number}}</h1>
+<div class="table-responsive">
 <table class="table table-hover">
    <thead class="thead-dark">
       <tr>
@@ -11,7 +12,7 @@
       </tr>
    </thead>
    <tbody>
-      {% for item in leaderboard_results %}
+      {% for item in season_leaderboard_results %}
       <tr>
          <th scope="row">{{item.placement}}</th>
          <td>{{item.total_points}}</td>
@@ -21,26 +22,26 @@
       {% endfor %}
    </tbody>
 </table>
+</div>
+{% for items in game_results.values() %}
+<h3 class="text-center">{{items[0].total_players}} Players. Game #{{items[0].game_number}}</h3>
 <table class="table table-hover">
    <thead class="thead-dark">
       <tr>
-         <th scope="col">Game #</th>
-         <th scope="col">Total Players</th>
-         <th scope="col">Placement</th>
+         <th scope="col">Place</th>
          <th scope="col">Username</th>
-         <th scope="col">points_earned</th>
+         <th scope="col">Points Earned</th>
       </tr>
    </thead>
    <tbody>
-      {% for item in game_results %}
+      {% for item in items %}
       <tr>
-         <th scope="row">{{item.game_number}}</th>
-         <td>{{item.total_players}}</td>
-         <td>{{item.placement}}</td>
+         <th scope="row">{{item.placement}}</th>
          <td>{{item.username}}</td>
          <td>{{item.points_earned}}</td>
       </tr>
       {% endfor %}
    </tbody>
 </table>
+{% endfor %}
 {% endblock content %}

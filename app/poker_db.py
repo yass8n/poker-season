@@ -1,4 +1,5 @@
 from app.db import get_db, query_to_dict, db_fetch
+from app.helpers import make_ordinal
 
 def get_season_results(season_id: int):
     sql = f"""
@@ -21,7 +22,19 @@ JOIN placement_points on placement_points.player_count = games.player_count AND 
 WHERE seasons.id = {season_id}
 GROUP BY players.id
 ORDER BY total_points DESC"""
-    return db_fetch(sql)
+
+    season_leaderboard_results = db_fetch(sql)
+    hash = {}
+    current_placement = 0
+    for leaderboard_result in season_leaderboard_results:
+        if leaderboard_result['total_points'] not in hash.keys():
+            current_placement = current_placement + 1
+            leaderboard_result['placement'] = make_ordinal(current_placement)
+            hash[leaderboard_result['total_points']] = True
+        else:
+            leaderboard_result['placement'] = make_ordinal(current_placement)
+
+    return season_leaderboard_results
 
 def get_game_results_for_season(season_id: int):
     sql = f"""
@@ -29,6 +42,7 @@ def get_game_results_for_season(season_id: int):
 SELECT
 game_number,
 games.player_count as total_players,
+games.id as id,
 CASE
     WHEN placement_points.placement = 1 THEN "1st"
     WHEN placement_points.placement = 2 THEN "2nd"
@@ -51,6 +65,7 @@ UNION
 SELECT
 game_number,
 games.player_count as total_players,
+games.id as id,
 NULL as placement,
 players.username,
 0 as points_earned
@@ -61,7 +76,15 @@ WHERE games_placements.placement IS NULL AND seasons.id = {season_id}
 ORDER BY game_number DESC, points_earned DESC
 )
 ORDER BY game_number DESC, points_earned DESC"""
-    return db_fetch(sql)
+
+    season_game_results = db_fetch(sql)
+    hash = {}
+    for game_result in season_game_results:
+        if game_result['game_number'] not in hash.keys():
+            hash[game_result['game_number']] = []
+        hash[game_result['game_number']].append(game_result)
+
+    return hash
 
 def populate_game_results(usernames_and_placements: dict, season_id: int, game_number: int):
     games_sql = f"""

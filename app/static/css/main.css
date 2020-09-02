@@ -1,3 +1,6 @@
 body {
-  background: lightsteelblue;
+  background: orange;
+}
+th, td {
+    text-align: center;
 }
