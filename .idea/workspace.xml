@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4443ac75-f58a-4ad6-a5fe-980014a532fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/poker_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/poker_db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/poker/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4443ac75-f58a-4ad6-a5fe-980014a532fc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +53,7 @@
       <updated>1598836169104</updated>
       <workItem from="1598836172400" duration="2289000" />
       <workItem from="1598929378143" duration="570000" />
+      <workItem from="1599041286944" duration="189000" />
     </task>
     <servers />
   </component>
