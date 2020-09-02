@@ -87,14 +87,19 @@ AND games.season_id = {season_id}
 # SELECT
 # game_number,
 # games.player_count as total_players,
-# placement_points.placement as placement,
+# CASE
+#     WHEN placement_points.placement = 1 THEN "1st"
+#     WHEN placement_points.placement = 2 THEN "2nd"
+#     WHEN placement_points.placement = 3 THEN "3rd"
+#     ELSE CONCAT(placement_points.placement, "th")
+# END as placement,
 # players.username,
-# placement_points.points as points_earned,
-# seasons.id as season_id
+# placement_points.points as points_earned
 # FROM games JOIN seasons on games.season_id = seasons.id
 # JOIN games_placements on games_placements.game_id = games.id
 # JOIN players on players.id = games_placements.player_id
 # JOIN placement_points on placement_points.player_count = games.player_count AND games_placements.placement = placement_points.placement
+# WHERE seasons.id = 1
 # ORDER BY game_number DESC, points_earned DESC
 # )
 #
@@ -106,26 +111,34 @@ AND games.season_id = {season_id}
 # games.player_count as total_players,
 # NULL as placement,
 # players.username,
-# 0 as points_earned,
-# seasons.id as season_id
+# 0 as points_earned
 # FROM games JOIN seasons on games.season_id = seasons.id
 # JOIN games_placements on games_placements.game_id = games.id
 # JOIN players on players.id = games_placements.player_id
-# WHERE games_placements.placement IS NULL
+# WHERE games_placements.placement IS NULL AND seasons.id = 1
 # ORDER BY game_number DESC, points_earned DESC
 # )
+# ORDER BY game_number DESC, points_earned DESC
+#
 # )
 
 
-
-
+#
+#
 # CREATE VIEW leaderboard_view AS SELECT total_points, username, placements, season_id from (
 # SELECT ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS ranking,
 # SUM(placement_points.points) as total_points,
 # players.username,
 # players.id as player_id,
 # seasons.id as season_id,
-# GROUP_CONCAT(placement_points.placement) as placements
+# GROUP_CONCAT(
+# CASE
+#     WHEN placement_points.placement = 1 THEN "1st"
+#     WHEN placement_points.placement = 2 THEN "2nd"
+#     WHEN placement_points.placement = 3 THEN "3rd"
+#     ELSE CONCAT(placement_points.placement, "th")
+# END
+# ) as placements
 # FROM games JOIN seasons on games.season_id = seasons.id
 # JOIN games_placements on games_placements.game_id = games.id
 # JOIN players on players.id = games_placements.player_id
@@ -134,7 +147,7 @@ AND games.season_id = {season_id}
 # ORDER BY total_points DESC
 #
 # ) as leaderboard_table;
-#
+
 
 
 
