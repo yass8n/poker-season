@@ -1,0 +1,3 @@
+pipenv shell
+flask run
+heroku logs -t
