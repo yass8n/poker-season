@@ -1,6 +1,11 @@
 body {
-  background: orange;
+  background: lightsteelblue;
 }
 th, td {
     text-align: center;
+}
+
+table {
+  /*  Makes all the columns have the same width */
+  table-layout: fixed ;
 }
