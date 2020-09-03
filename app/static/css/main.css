@@ -5,7 +5,18 @@ th, td {
     text-align: center;
 }
 
-table {
-  /*  Makes all the columns have the same width */
-  table-layout: fixed ;
+.table {
+     /*  Makes all the columns have the same width */
+    table-layout: fixed ;
+    width: 75%;
+      /*  centers the table */
+    margin: auto;
+}
+
+/* Divider */
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 2px solid #343a40;
 }
