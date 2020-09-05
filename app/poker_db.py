@@ -111,14 +111,16 @@ AND games.season_id = {season_id}
         get_db().execute(games_insert_sql)
 
 # poker
+# pipenv shell
 # flask shell
 # from app.poker_db import populate_game_results
 # user_dict = {
-#     'KittyKatMonk': 'NULL',
-#     'JPoka19': 'NULL'
+#     'calendar_master': '1',
+#     '_KMiller': '2',
+#     'ocasillas310' : 3
 # }
-# season_ids = 1
-# game_numbers = 3
+# season_ids = 2
+# game_numbers = 1
 # populate_game_results(user_dict, season_ids, game_numbers)
 
 
