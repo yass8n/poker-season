@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4443ac75-f58a-4ad6-a5fe-980014a532fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +59,9 @@
       <workItem from="1599041286944" duration="6487000" />
       <workItem from="1599048703897" duration="2195000" />
       <workItem from="1599076973821" duration="24000" />
+      <workItem from="1599099980324" duration="236000" />
+      <workItem from="1599115621240" duration="2000" />
+      <workItem from="1599271419513" duration="140000" />
     </task>
     <servers />
   </component>
@@ -67,18 +69,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="578" y="324" key="com.intellij.ide.util.TipDialog" timestamp="1599076973236">
+    <state x="578" y="324" key="com.intellij.ide.util.TipDialog" timestamp="1599271605068">
       <screen x="0" y="23" width="1680" height="991" />
     </state>
-    <state x="578" y="324" key="com.intellij.ide.util.TipDialog/0.23.1680.991@0.23.1680.991" timestamp="1599076973236" />
-    <state x="579" y="253" width="845" height="538" key="find.popup" timestamp="1599049039127">
+    <state x="578" y="324" key="com.intellij.ide.util.TipDialog/0.23.1680.991@0.23.1680.991" timestamp="1599271605068" />
+    <state x="579" y="253" width="845" height="538" key="find.popup" timestamp="1599271469953">
       <screen x="0" y="23" width="1680" height="991" />
     </state>
-    <state x="579" y="253" width="845" height="538" key="find.popup/0.23.1680.991@0.23.1680.991" timestamp="1599049039127" />
-    <state x="589" y="227" width="670" height="676" key="search.everywhere.popup" timestamp="1599099981598">
+    <state x="579" y="253" width="845" height="538" key="find.popup/0.23.1680.991@0.23.1680.991" timestamp="1599271469953" />
+    <state x="589" y="227" width="670" height="676" key="search.everywhere.popup" timestamp="1599271610348">
       <screen x="0" y="23" width="1680" height="991" />
     </state>
-    <state x="589" y="227" width="670" height="676" key="search.everywhere.popup/0.23.1680.991@0.23.1680.991" timestamp="1599099981598" />
+    <state x="589" y="227" width="670" height="676" key="search.everywhere.popup/0.23.1680.991@0.23.1680.991" timestamp="1599271610348" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

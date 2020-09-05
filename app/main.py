@@ -7,7 +7,7 @@ from app.poker_db import get_season_results, get_game_results_for_season
 
 @app.route('/')
 def index():
-    season_id = 1
+    season_id = 2
     season_leaderboard_results = get_season_results(season_id=season_id)
     game_results = get_game_results_for_season(season_id=season_id)
 
