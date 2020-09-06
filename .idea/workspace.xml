@@ -4,7 +4,7 @@
     <list default="true" id="4443ac75-f58a-4ad6-a5fe-980014a532fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/poker_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +66,7 @@
       <workItem from="1599271605452" duration="48000" />
       <workItem from="1599330719991" duration="290000" />
       <workItem from="1599331142474" duration="3116000" />
-      <workItem from="1599382876525" duration="1420000" />
+      <workItem from="1599382876525" duration="2354000" />
     </task>
     <servers />
   </component>
@@ -82,9 +82,10 @@
       <screen x="0" y="23" width="1680" height="991" />
     </state>
     <state x="578" y="324" key="com.intellij.ide.util.TipDialog/0.23.1680.991@0.23.1680.991" timestamp="1599382876757" />
-    <state x="579" y="253" width="845" height="538" key="find.popup" timestamp="1599332845338">
-      <screen x="0" y="23" width="1680" height="991" />
+    <state x="579" y="253" width="845" height="538" key="find.popup" timestamp="1599385594153">
+      <screen x="0" y="23" width="1680" height="990" />
     </state>
+    <state x="579" y="253" width="845" height="538" key="find.popup/0.23.1680.990@0.23.1680.990" timestamp="1599385594153" />
     <state x="579" y="253" width="845" height="538" key="find.popup/0.23.1680.991@0.23.1680.991" timestamp="1599332845338" />
     <state x="589" y="227" width="670" height="676" key="search.everywhere.popup" timestamp="1599383954298">
       <screen x="0" y="23" width="1680" height="990" />

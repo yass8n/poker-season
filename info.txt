@@ -4,3 +4,24 @@ heroku logs -t
 export FLASK_DEBUG=ON
 export FLASK_ENV=development
 for css changes to render you need to disable chrome caching in network tab
+
+
+
+
+poker
+pipenv shell
+flask shell
+from app.models import Game
+user_dict = {
+    '_KMiller': '1',
+    'calendar_master': '2',
+    'El Gitano655' : 3,
+}
+season_id = 1
+game_number = 17
+player_count = 15
+Game.populate_game_results(user_dict, season_id, game_number, player_count, "NULL")
+
+
+
+

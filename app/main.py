@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 app.config.from_pyfile('config.py', silent=True)
-from app.poker_db import get_season_results, get_game_results_for_season, get_all_seasons
+from app.models import Season, Club
 
 @app.route('/')
 def index():
@@ -9,9 +9,9 @@ def index():
 
 @app.route('/clubs/<club_id>/seasons/<season_id>')
 def show(club_id: int, season_id: int):
-    season_leaderboard_results = get_season_results(season_id=season_id)
-    game_results = get_game_results_for_season(season_id=season_id)
-    club_seasons = get_all_seasons(club_id)
+    season_leaderboard_results = Season.get_season_results(season_id=season_id)
+    game_results = Season.get_game_results_for_season(season_id=season_id)
+    club_seasons = Club.get_all_seasons(club_id=club_id)
     all_data = {
         "club_seasons" : club_seasons,
         "season_leaderboard_results" : season_leaderboard_results,
