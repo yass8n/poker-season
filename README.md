@@ -14,6 +14,8 @@ We play online at [pokerstars.net](www.pokerstars.net) which doesn't offer an op
 
 * It's hosted for free on [heroku](heroku.com)
 
+* MySql database on AWS
+
 * For the UI I used [bootstrap](https://getbootstrap.com/) css library
 
 ## Check it out
