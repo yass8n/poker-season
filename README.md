@@ -1,4 +1,4 @@
-# poker-season
+# Poker Leaderboard
 
 ## Purpose
 
