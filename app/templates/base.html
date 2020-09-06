@@ -15,18 +15,14 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                      {% for item in club_seasons %}
-                     <a class="dropdown-item" href="/clubs/{{item.club_id}}/seasons/{{item.id}}">{{item.name}}</a>
+                     <a class="dropdown-item" href="/club/{{item.club_id}}/season/{{item.id}}">{{item.name}}</a>
                      {% endfor %}
                   </div>
                </li>
             </ul>
          </div>
       </nav>
-      {% if title %}
-      <title>{{ title }} - Flask CRUD</title>
-      {% else %}
       <title>Poker League</title>
-      {% endif %}
    </head>
    <body>
       {% block content %}{% endblock %}
