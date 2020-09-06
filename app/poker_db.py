@@ -1,6 +1,12 @@
 from app.db import get_db, query_to_dict, db_fetch
 from app.helpers import make_ordinal
 
+def get_all_seasons(club_id: int):
+    sql = f"""
+SELECT * FROM seasons WHERE club_id = {club_id}
+"""
+    return db_fetch(sql)
+
 def get_season_results(season_id: int):
     sql = f"""
 SELECT SUM(placement_points.points) as total_points,
@@ -18,7 +24,9 @@ END SEPARATOR ', '
 FROM games JOIN seasons on games.season_id = seasons.id
 JOIN games_placements on games_placements.game_id = games.id
 JOIN players on players.id = games_placements.player_id
-JOIN placement_points on placement_points.player_count = games.player_count AND games_placements.placement = placement_points.placement
+JOIN placement_points on placement_points.player_count = games.player_count 
+AND placement_points.season_id = games.season_id
+AND games_placements.placement = placement_points.placement
 WHERE seasons.id = {season_id}
 GROUP BY players.id
 ORDER BY total_points DESC"""
@@ -54,7 +62,9 @@ placement_points.points as points_earned
 FROM games JOIN seasons on games.season_id = seasons.id
 JOIN games_placements on games_placements.game_id = games.id
 JOIN players on players.id = games_placements.player_id
-JOIN placement_points on placement_points.player_count = games.player_count AND games_placements.placement = placement_points.placement
+JOIN placement_points on placement_points.player_count = games.player_count 
+AND placement_points.season_id = games.season_id
+AND games_placements.placement = placement_points.placement
 WHERE seasons.id = {season_id}
 ORDER BY game_number DESC, points_earned DESC
 )
@@ -86,7 +96,22 @@ ORDER BY game_number DESC, points_earned DESC"""
 
     return hash
 
-def populate_game_results(usernames_and_placements: dict, season_id: int, game_number: int):
+def populate_game_results(usernames_and_placements: dict, season_id: int, game_number: int, player_count: int, start_date: str):
+    find_game_sql = f"""
+    SELECT *
+    FROM games
+    WHERE games.game_number = {game_number}
+    AND games.season_id = {season_id}"""
+    game_id = db_fetch(find_game_sql)
+    if (len(game_id) == 0):
+        games_insert_sql = f"""
+            INSERT INTO games
+            (game_number,season_id, player_count, start_date)
+            VALUES 
+            ({game_number},{season_id},{player_count},{start_date})
+             """
+        get_db().execute(games_insert_sql)
+
     games_sql = f"""
 SELECT games.id 
 FROM games
@@ -109,19 +134,20 @@ AND games.season_id = {season_id}
         ({player_id},{game_id},{placement})
                    """
         get_db().execute(games_insert_sql)
-
+#
 # poker
 # pipenv shell
 # flask shell
 # from app.poker_db import populate_game_results
 # user_dict = {
-#     'calendar_master': '1',
-#     '_KMiller': '2',
-#     'ocasillas310' : 3
+#     '_KMiller': '1',
+#     'calendar_master': '2',
+#     'El Gitano655' : 3,
 # }
-# season_ids = 2
-# game_numbers = 1
-# populate_game_results(user_dict, season_ids, game_numbers)
+# season_ids = 1
+# game_numbers = 17
+# player_count = 15
+# populate_game_results(user_dict, season_ids, game_numbers, player_count, "NULL")
 
 
 

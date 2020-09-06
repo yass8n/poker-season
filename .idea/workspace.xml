@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4443ac75-f58a-4ad6-a5fe-980014a532fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/poker_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/poker_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +67,8 @@
       <workItem from="1599271419513" duration="140000" />
       <workItem from="1599271605452" duration="48000" />
       <workItem from="1599330719991" duration="290000" />
+      <workItem from="1599331142474" duration="3116000" />
+      <workItem from="1599382876525" duration="755000" />
     </task>
     <servers />
   </component>
@@ -71,18 +76,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="578" y="324" key="com.intellij.ide.util.TipDialog" timestamp="1599330720453">
+    <state x="388" y="153" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599372438858">
       <screen x="0" y="23" width="1680" height="991" />
     </state>
-    <state x="578" y="324" key="com.intellij.ide.util.TipDialog/0.23.1680.991@0.23.1680.991" timestamp="1599330720453" />
-    <state x="579" y="253" width="845" height="538" key="find.popup" timestamp="1599271469953">
+    <state x="388" y="153" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.991@0.23.1680.991" timestamp="1599372438858" />
+    <state x="578" y="324" key="com.intellij.ide.util.TipDialog" timestamp="1599382876757">
       <screen x="0" y="23" width="1680" height="991" />
     </state>
-    <state x="579" y="253" width="845" height="538" key="find.popup/0.23.1680.991@0.23.1680.991" timestamp="1599271469953" />
-    <state x="589" y="227" width="670" height="676" key="search.everywhere.popup" timestamp="1599271610348">
+    <state x="578" y="324" key="com.intellij.ide.util.TipDialog/0.23.1680.991@0.23.1680.991" timestamp="1599382876757" />
+    <state x="579" y="253" width="845" height="538" key="find.popup" timestamp="1599332845338">
       <screen x="0" y="23" width="1680" height="991" />
     </state>
-    <state x="589" y="227" width="670" height="676" key="search.everywhere.popup/0.23.1680.991@0.23.1680.991" timestamp="1599271610348" />
+    <state x="579" y="253" width="845" height="538" key="find.popup/0.23.1680.991@0.23.1680.991" timestamp="1599332845338" />
+    <state x="589" y="227" width="670" height="676" key="search.everywhere.popup" timestamp="1599342522807">
+      <screen x="0" y="23" width="1680" height="991" />
+    </state>
+    <state x="589" y="227" width="670" height="676" key="search.everywhere.popup/0.23.1680.991@0.23.1680.991" timestamp="1599342522807" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

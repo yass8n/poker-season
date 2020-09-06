@@ -7,10 +7,12 @@ from app.poker_db import get_season_results, get_game_results_for_season
 
 @app.route('/')
 def index():
-    season_id = 2
+    return render_template('base.html')
+
+@app.route('/seasons/<season_id>')
+def show(season_id: int):
     season_leaderboard_results = get_season_results(season_id=season_id)
     game_results = get_game_results_for_season(season_id=season_id)
-
 
     all_data = {
         "season_leaderboard_results" : season_leaderboard_results,

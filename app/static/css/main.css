@@ -1,6 +1,15 @@
 body {
   background: lightsteelblue;
 }
+
+nav.navbar {
+  background-color: #343a40;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
 th, td {
     text-align: center;
 }
@@ -8,7 +17,7 @@ th, td {
 .table {
      /*  Makes all the columns have the same width */
     table-layout: fixed ;
-    width: 75%;
+    width: 85%;
       /*  centers the table */
     margin: auto;
 }
