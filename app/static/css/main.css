@@ -19,6 +19,10 @@ td {
 	text-align: center;
 }
 
+.navbar-toggler {
+	background: white;
+}
+
 .poker-results-table {
 	/*  Makes all the columns have the same width */
 	table-layout: fixed;
