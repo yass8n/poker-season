@@ -6,6 +6,10 @@ nav.navbar {
   background-color: #343a40;
 }
 
+nav {
+    margin-bottom: 20px;
+}
+
 .navbar-light .navbar-nav .nav-link {
     color: white;
 }
@@ -14,12 +18,19 @@ th, td {
     text-align: center;
 }
 
-.table {
+.poker-results-table {
      /*  Makes all the columns have the same width */
     table-layout: fixed ;
     width: 85%;
       /*  centers the table */
-    margin: auto;
+    margin: 20px auto;
+
+}
+
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Divider */

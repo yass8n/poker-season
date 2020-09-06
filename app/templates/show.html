@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class="text-center">Poker Season #{{season_number}}</h1>
-<table class="table table-hover table-bordered table-curved">
+<h2 class="text-center">Season #{{season_number}}</h2>
+<table class="table poker-results-table table-hover table-bordered table-curved">
    <thead class="thead-dark">
       <tr>
          <th scope="col">Place</th>
@@ -22,9 +22,8 @@
    </tbody>
 </table>
 {% for items in game_results.values() %}
-<br>
 <h4 class="text-center">{{items[0].total_players}} Players - Game #{{items[0].game_number}}</h4>
-<table class="table table-hover table-bordered">
+<table class="table poker-results-table table-hover table-bordered">
    <thead class="thead-dark">
       <tr>
          <th scope="col">Place</th>
