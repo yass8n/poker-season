@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center">Season #{{season_number}}</h2>
+<table class="table poker-results-table table-hover table-bordered table-curved">
+   <thead class="thead-dark">
+      <tr>
+         <th scope="col">Place</th>
+         <th scope="col">Total Points</th>
+         <th scope="col">Username</th>
+         <th scope="col">Placements</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for item in season_leaderboard_results %}
+      <tr>
+         <th scope="row">{{item.placement}}</th>
+         <td>{{item.total_points}}</td>
+         <td>{{item.username}}</td>
+         <td>{{item.placements}}</td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+{% for items in game_results.values() %}
+<h4 class="text-center">{{items[0].total_players}} Players - Game #{{items[0].game_number}}</h4>
+<table class="table poker-results-table table-hover table-bordered">
+   <thead class="thead-dark">
+      <tr>
+         <th scope="col">Place</th>
+         <th scope="col">Username</th>
+         <th scope="col">Points Earned</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for item in items %}
+      <tr>
+         <th scope="row">{{item.placement}}</th>
+         <td>{{item.username}}</td>
+         <td>{{item.points_earned}}</td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+{% endfor %}
+{% endblock content %}

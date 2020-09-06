@@ -8,7 +8,7 @@
          <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav">
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Season
@@ -20,9 +20,18 @@
                   </div>
                </li>
             </ul>
+            {% if club %}
+            <ul class="nav navbar-nav mx-auto abs-center-x">
+               <li class="nav-item"><a class="nav-link">{{club.name}}</a></li>
+            </ul>
+            {% endif %}
          </div>
       </nav>
+      {% if title %}
+      <title>{{ title }}</title>
+      {% else %}
       <title>Poker League</title>
+      {% endif %}
    </head>
    <body>
       {% block content %}{% endblock %}
