@@ -3,28 +3,29 @@ app = Flask(__name__)
 app.config.from_pyfile('config.py', silent=True)
 from app.models import Season, Club
 
-@app.route('/<club_id>')
+@app.route('/club/<club_id>')
 @app.route('/')
 def index(club_id: int = 1):
     club = Club.query.get(club_id)
-    club_seasons = Club.get_all_seasons(club_id=club.id)
+    club_seasons = club.get_all_seasons()
     all_data = {
         "club_seasons" : club_seasons,
         "club" : club
     }
     return render_template('index.html', **all_data)
 
-@app.route('/club/<club_id>/season/<season_id>')
-def show(club_id: int, season_id: int):
-    season_leaderboard_results = Season.get_season_results(season_id=season_id)
-    game_results = Season.get_game_results_for_season(season_id=season_id)
-    club = Club.query.get(club_id)
-    club_seasons = Club.get_all_seasons(club_id=club_id)
+@app.route('/season/<season_id>')
+def show(season_id: int):
+    season = Season.query.get(season_id)
+    club = Club.query.get(season.club_id)
+    season_leaderboard_results = season.get_season_results()
+    game_results = season.get_game_results_for_season()
+    club_seasons = club.get_all_seasons()
     all_data = {
         "club_seasons" : club_seasons,
         "season_leaderboard_results" : season_leaderboard_results,
         "game_results" : game_results,
-        "season_number" : season_id,
+        "season" : season,
         "club": club
     }
     return render_template('show.html', **all_data)

@@ -9,7 +9,7 @@ class Player(db.Model):
         primary_key=True
     )
     username = db.Column(
-        db.String(64),
+        db.String(255),
         index=False,
         unique=True,
         nullable=False
@@ -34,7 +34,7 @@ class Club(db.Model):
         primary_key=True
     )
     name = db.Column(
-        db.String(64),
+        db.String(255),
         index=False,
         nullable=False
     )
@@ -51,9 +51,9 @@ class Club(db.Model):
         nullable=True
     )
 
-    def get_all_seasons(club_id: int):
+    def get_all_seasons(self):
         sql = f"""
-    SELECT * FROM seasons WHERE club_id = {club_id}
+    SELECT * FROM seasons WHERE club_id = {self.id}
     """
         return db_fetch(sql)
 
@@ -64,7 +64,7 @@ class Season(db.Model):
         primary_key=True
     )
     name = db.Column(
-        db.String(64),
+        db.String(255),
         index=False,
         nullable=False
     )
@@ -80,6 +80,18 @@ class Season(db.Model):
         unique=False,
         nullable=True
     )
+    season_number = db.Column(
+        db.Integer,
+        index=False,
+        unique=False,
+        nullable=True
+    )
+    link = db.Column(
+        db.String(255),
+        index=False,
+        unique=False,
+        nullable=True
+    )
     created_at = db.Column(
         db.DateTime,
         index=False,
@@ -93,7 +105,7 @@ class Season(db.Model):
         nullable=True
     )
 
-    def get_season_results(season_id: int):
+    def get_season_results(self):
         sql = f"""
     SELECT SUM(placement_points.points) as total_points,
     players.username,
@@ -113,7 +125,7 @@ class Season(db.Model):
     JOIN placement_points on placement_points.player_count = games.player_count 
     AND placement_points.season_id = games.season_id
     AND games_placements.placement = placement_points.placement
-    WHERE seasons.id = {season_id}
+    WHERE seasons.id = {self.id}
     GROUP BY players.id
     ORDER BY total_points DESC"""
 
@@ -130,7 +142,7 @@ class Season(db.Model):
 
         return season_leaderboard_results
 
-    def get_game_results_for_season(season_id: int):
+    def get_game_results_for_season(self):
         sql = f"""
        (
     SELECT
@@ -151,7 +163,7 @@ class Season(db.Model):
     JOIN placement_points on placement_points.player_count = games.player_count 
     AND placement_points.season_id = games.season_id
     AND games_placements.placement = placement_points.placement
-    WHERE seasons.id = {season_id}
+    WHERE seasons.id = {self.id}
     ORDER BY game_number DESC, points_earned DESC
     )
 
@@ -168,7 +180,7 @@ class Season(db.Model):
     FROM games JOIN seasons on games.season_id = seasons.id
     JOIN games_placements on games_placements.game_id = games.id
     JOIN players on players.id = games_placements.player_id
-    WHERE games_placements.placement IS NULL AND seasons.id = {season_id}
+    WHERE games_placements.placement IS NULL AND seasons.id = {self.id}
     ORDER BY game_number DESC, points_earned DESC
     )
     ORDER BY game_number DESC, points_earned DESC"""
@@ -189,7 +201,7 @@ class Game(db.Model):
         primary_key=True
     )
     name = db.Column(
-        db.String(64),
+        db.String(255),
         index=False,
         nullable=False
     )
