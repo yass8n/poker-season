@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4443ac75-f58a-4ad6-a5fe-980014a532fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/app/poker_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+=======
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +68,11 @@
       <workItem from="1599271605452" duration="48000" />
       <workItem from="1599330719991" duration="290000" />
       <workItem from="1599331142474" duration="3116000" />
+<<<<<<< Updated upstream
       <workItem from="1599382876525" duration="2354000" />
+=======
+      <workItem from="1599382876525" duration="3234000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>

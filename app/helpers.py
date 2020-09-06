@@ -1,7 +1,6 @@
 def make_ordinal(n):
     '''
     Convert an integer into its ordinal representation::
-
         make_ordinal(0)   => '0th'
         make_ordinal(3)   => '3rd'
         make_ordinal(122) => '122nd'

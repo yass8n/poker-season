@@ -5,7 +5,13 @@ from app.models import Season, Club
 
 @app.route('/')
 def index():
-    return render_template('base.html')
+    club = Club.query.get(1)
+    club_seasons = Club.get_all_seasons(club_id=club.id)
+    all_data = {
+        "club_seasons" : club_seasons,
+        "club" : club
+    }
+    return render_template('index.html', **all_data)
 
 @app.route('/clubs/<club_id>/seasons/<season_id>')
 def show(club_id: int, season_id: int):
@@ -18,7 +24,7 @@ def show(club_id: int, season_id: int):
         "game_results" : game_results,
         "season_number" : season_id
     }
-    return render_template('index.html', **all_data)
+    return render_template('show.html', **all_data)
 
 
 if __name__ == '__main__':
