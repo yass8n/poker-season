@@ -10,7 +10,7 @@ We play online at [pokerstars.net](www.pokerstars.net) which doesn't offer an op
 
 ## Technical Details
 
-* Written using the [flask](https://flask.palletsprojects.com/en/1.1.x/) framework. 
+* Written using [flask](https://flask.palletsprojects.com/en/1.1.x/) framework
 
 * Hosted for free on [heroku](heroku.com)
 
