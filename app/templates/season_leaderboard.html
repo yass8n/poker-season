@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2 class="text-center">Season #{{season.season_number}}</h2>
-{% if season.link %}
-<p class="text-center"><a href="{{season.link}}" target="_blank">Rules/Point Structure</a></p>
-{% endif %}
 <table class="table poker-results-table table-hover table-bordered table-curved">
    <thead class="thead-dark">
       <tr>
@@ -45,4 +42,7 @@
    </tbody>
 </table>
 {% endfor %}
+{% if season.link %}
+<p class="text-center"><a href="{{season.link}}" target="_blank">Rules/Point Structure</a></p>
+{% endif %}
 {% endblock content %}

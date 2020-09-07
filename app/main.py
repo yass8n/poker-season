@@ -28,7 +28,7 @@ def show(season_id: int):
         "season" : season,
         "club": club
     }
-    return render_template('show.html', **all_data)
+    return render_template('season_leaderboard.html', **all_data)
 
 @app.route('/season/<season_id>/streaks')
 def show_season_streaks(season_id: int):
