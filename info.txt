@@ -13,14 +13,25 @@ pipenv shell
 flask shell
 from app.models import Game
 user_dict = {
-    '_KMiller': '1',
-    'calendar_master': '2',
-    'El Gitano655' : 3,
+    'KittyKatMonk': 'NULL',
+    'beats9': 'NULL',
+    'Stafs101': 'NULL',
+    #'JPoka19' : 'NULL',
+    #'RohChile': 'NULL',
+    'PickaCard911': 'NULL',
+    'Steezy1133' : 'NULL',
+    '2eTime': 'NULL',
+    #'MastaQ2412' : 'NULL',
+    #'Dommy PHD' : 'NULL',
+    'ocasillas310' : 'NULL',
+    'mantecafish209' : 'NULL',
+    'felix' : 'NULL',
+    'ericg90' : 'NULL'
 }
-season_id = 1
-game_number = 17
-player_count = 15
-Game.populate_game_results(user_dict, season_id, game_number, player_count, "NULL")
+season_id = 2
+game_number = 1
+player_count = 12
+Game.populate_game_results(user_dict, season_id, game_number, player_count, "2020-09-06")
 
 
 

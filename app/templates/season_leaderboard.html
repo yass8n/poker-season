@@ -22,7 +22,7 @@
    </tbody>
 </table>
 {% for items in game_results.values() %}
-<h4 class="text-center">{{items[0].total_players}} Players - Game #{{items[0].game_number}}</h4>
+<h4 class="text-center">{{items|length}} Players - Game #{{items[0].game_number}}</h4>
 <table class="table poker-results-table table-hover table-bordered">
    <thead class="thead-dark">
       <tr>
@@ -33,11 +33,13 @@
    </thead>
    <tbody>
       {% for item in items %}
+      {%  if item.points_earned > 0 %}
       <tr>
          <th scope="row">{{item.placement}}</th>
          <td>{{item.username}}</td>
          <td>{{item.points_earned}}</td>
       </tr>
+      {% endif %}
       {% endfor %}
    </tbody>
 </table>

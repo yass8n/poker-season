@@ -184,7 +184,6 @@ class Season(db.Model):
     ORDER BY game_number DESC, points_earned DESC
     )
     ORDER BY game_number DESC, points_earned DESC"""
-
         season_game_results = db_fetch(sql)
         hash = {}
         for game_result in season_game_results:
@@ -246,7 +245,7 @@ class Game(db.Model):
         game_id = db_fetch(find_game_sql)
         if (len(game_id) == 0):
             games_insert_sql = f"""
-                INSERT INTO games
+                INSERT IGNORE INTO games
                 (game_number,season_id, player_count, start_date)
                 VALUES 
                 ({game_number},{season_id},{player_count},{start_date})
@@ -269,7 +268,7 @@ class Game(db.Model):
                        """
             player_id = db_fetch(player_sql)[0]['id']
             games_insert_sql = f"""
-            INSERT INTO games_placements
+            INSERT IGNORE INTO games_placements
             (player_id,game_id,placement)
             VALUES 
             ({player_id},{game_id},{placement})
