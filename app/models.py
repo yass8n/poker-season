@@ -149,6 +149,7 @@ class Season(db.Model):
     game_number,
     games.player_count as total_players,
     games.id as id,
+    games.season_id as season_id,
     CASE
         WHEN placement_points.placement = 1 THEN "1st"
         WHEN placement_points.placement = 2 THEN "2nd"
@@ -174,6 +175,7 @@ class Season(db.Model):
     game_number,
     games.player_count as total_players,
     games.id as id,
+    games.season_id as season_id,
     NULL as placement,
     players.username,
     0 as points_earned
