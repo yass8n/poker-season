@@ -30,6 +30,18 @@ def show(season_id: int):
     }
     return render_template('show.html', **all_data)
 
+@app.route('/season/<season_id>/streaks')
+def show_season_streaks(season_id: int):
+    season = Season.query.get(season_id)
+    club = Club.query.get(season.club_id)
+    club_seasons = club.get_all_seasons()
+    all_data = {
+        "club_seasons": club_seasons,
+        "season": season,
+        "club": club
+    }
+    return render_template('season_player_stats.html', **all_data)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
