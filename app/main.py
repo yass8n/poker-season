@@ -15,7 +15,7 @@ def index(club_id: int = 1):
     return render_template('index.html', **all_data)
 
 @app.route('/season/<season_id>')
-def show(season_id: int):
+def show_season_leaderboard(season_id: int):
     season = Season.query.get(season_id)
     club = Club.query.get(season.club_id)
     season_leaderboard_results = season.get_season_results()
