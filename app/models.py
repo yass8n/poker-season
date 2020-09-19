@@ -117,7 +117,9 @@ class Season(db.Model):
         WHEN placement_points.placement = 2 THEN '2nd'
         WHEN placement_points.placement = 3 THEN '3rd'
         ELSE CONCAT(placement_points.placement, 'th')
-    END SEPARATOR ', '
+    END 
+    ORDER BY games.start_date ASC)
+    SEPARATOR ', '
     ) as placements
     FROM games JOIN seasons on games.season_id = seasons.id
     JOIN games_placements on games_placements.game_id = games.id
