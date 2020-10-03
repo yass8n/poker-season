@@ -2,7 +2,13 @@ from app.db import get_db, query_to_dict, db_fetch
 from app.helpers import make_ordinal
 from app.db import db
 
-class Player(db.Model):
+class BaseModel(db.Model):
+    __abstract__ = True
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+class Player(BaseModel):
     __tablename__ = 'players'
     id = db.Column(
         db.Integer,
@@ -27,7 +33,15 @@ class Player(db.Model):
         nullable=False
     )
 
-class Club(db.Model):
+    @classmethod
+    def create_player_with_username(cls, username):
+        player = Player()
+        player.username = username
+        player.save()
+        return player
+
+
+class Club(BaseModel):
     __tablename__ = 'clubs'
     id = db.Column(
         db.Integer,
@@ -57,7 +71,7 @@ class Club(db.Model):
     """
         return db_fetch(sql)
 
-class Season(db.Model):
+class Season(BaseModel):
     __tablename__ = 'seasons'
     id = db.Column(
         db.Integer,
@@ -197,7 +211,7 @@ class Season(db.Model):
 
         return hash
 
-class Game(db.Model):
+class Game(BaseModel):
     __tablename__ = 'games'
     id = db.Column(
         db.Integer,
@@ -270,7 +284,14 @@ class Game(db.Model):
             FROM players
             WHERE players.username = '{username}'
                        """
-            player_id = db_fetch(player_sql)[0]['id']
+            player_id = db_fetch(player_sql)
+
+            if len(player_id) == 0:
+                player = Player.create_player_with_username(username)
+                player_id = player.id
+            else:
+                player_id = player_id[0]['id']
+
             games_insert_sql = f"""
             INSERT IGNORE INTO games_placements
             (player_id,game_id,placement)
@@ -279,7 +300,7 @@ class Game(db.Model):
                        """
             get_db().execute(games_insert_sql)
 
-class GamePlacement(db.Model):
+class GamePlacement(BaseModel):
     __tablename__ = 'games_placements'
     id = db.Column(
         db.Integer,
@@ -316,7 +337,7 @@ class GamePlacement(db.Model):
         nullable=True
     )
 
-class PlacementPoint(db.Model):
+class PlacementPoint(BaseModel):
     __tablename__ = 'placement_points'
     id = db.Column(
         db.Integer,
