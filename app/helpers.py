@@ -1,3 +1,5 @@
+import datetime
+
 def make_ordinal(n):
     '''
     Convert an integer into its ordinal representation::
@@ -11,3 +13,6 @@ def make_ordinal(n):
     if 11 <= (n % 100) <= 13:
         suffix = 'th'
     return str(n) + suffix
+
+def get_datetime_from_string(string):
+    return datetime.datetime.strptime(string, '%Y-%m-%d %H:%M:%S')

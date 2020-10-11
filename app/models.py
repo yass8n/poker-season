@@ -1,6 +1,8 @@
 from app.db import get_db, query_to_dict, db_fetch
 from app.helpers import make_ordinal
 from app.db import db
+from app.helpers import get_datetime_from_string
+import datetime
 
 class BaseModel(db.Model):
     __abstract__ = True
@@ -24,13 +26,15 @@ class Player(BaseModel):
         db.DateTime,
         index=False,
         unique=False,
-        nullable=False
+        nullable=False,
+        default=datetime.datetime.utcnow
     )
     updated_at = db.Column(
         db.DateTime,
         index=False,
         unique=False,
-        nullable=False
+        nullable=False,
+        default=datetime.datetime.utcnow
     )
 
     @classmethod
@@ -56,13 +60,15 @@ class Club(BaseModel):
         db.DateTime,
         index=False,
         unique=False,
-        nullable=True
+        nullable=True,
+        default=datetime.datetime.utcnow
     )
     updated_at = db.Column(
         db.DateTime,
         index=False,
         unique=False,
-        nullable=True
+        nullable=True,
+        default=datetime.datetime.utcnow
     )
 
     def get_all_seasons(self):
@@ -110,13 +116,15 @@ class Season(BaseModel):
         db.DateTime,
         index=False,
         unique=False,
-        nullable=True
+        nullable=True,
+        default=datetime.datetime.utcnow
     )
     updated_at = db.Column(
         db.DateTime,
         index=False,
         unique=False,
-        nullable=True
+        nullable=True,
+        default=datetime.datetime.utcnow
     )
 
     def get_season_results(self):
@@ -217,11 +225,6 @@ class Game(BaseModel):
         db.Integer,
         primary_key=True
     )
-    name = db.Column(
-        db.String(255),
-        index=False,
-        nullable=False
-    )
     season_id = db.Column(
         db.Integer,
         index=True,
@@ -240,65 +243,61 @@ class Game(BaseModel):
         unique=False,
         nullable=False
     )
-    created_at = db.Column(
+    start_date = db.Column(
         db.DateTime,
         index=False,
         unique=False,
         nullable=True
+    )
+    created_at = db.Column(
+        db.DateTime,
+        index=False,
+        unique=False,
+        nullable=True,
+        default=datetime.datetime.utcnow
     )
     updated_at = db.Column(
         db.DateTime,
         index=False,
         unique=False,
-        nullable=True
+        nullable=True,
+        default=datetime.datetime.utcnow
     )
 
-    def populate_game_results(usernames_and_placements: dict, season_id: int, game_number: int, player_count: int,
+    def get_total_player_count(self):
+        sql = f"""select COUNT(*) as total from games_placements inner join games on games.id = games_placements.game_id WHERE games.id = {self.id} group by games.id"""
+        game_result = db_fetch(sql)
+        return game_result[0]['total']
+
+    def populate_game_results(usernames_and_placements: dict,
+                              season_id: int,
+                              game_number: int,
                               start_date: str):
-        find_game_sql = f"""
-        SELECT *
-        FROM games
-        WHERE games.game_number = {game_number}
-        AND games.season_id = {season_id}"""
-        game_id = db_fetch(find_game_sql)
-        if (len(game_id) == 0):
-            games_insert_sql = f"""
-                INSERT IGNORE INTO games
-                (game_number,season_id, player_count, start_date)
-                VALUES 
-                ({game_number},{season_id},{player_count},{start_date})
-                 """
-            get_db().execute(games_insert_sql)
+        game = Game.query.filter_by(game_number=game_number, season_id=season_id).first()
+        if game is None:
+            # create game model if not exists
+            game = Game(game_number=game_number, season_id=season_id, start_date=get_datetime_from_string(start_date))
+            game.save()
 
-        games_sql = f"""
-    SELECT games.id 
-    FROM games
-    WHERE games.game_number = {game_number}
-    AND games.season_id = {season_id}
-               """
-        game_id = db_fetch(games_sql)[0]['id']
+        # delete all existing games placements
+        db.session.query(GamePlacement).filter_by(game_id=game.id).delete()
+        db.session.commit()
+
         for username in usernames_and_placements:
+            player = Player.query.filter_by(username=username).first()
+            if player is None:
+                # create player if not exists
+                player = Player(username=username)
+                player.save()
             placement = usernames_and_placements[username]
-            player_sql = f"""
-            SELECT players.id 
-            FROM players
-            WHERE players.username = '{username}'
-                       """
-            player_id = db_fetch(player_sql)
 
-            if len(player_id) == 0:
-                player = Player.create_player_with_username(username)
-                player_id = player.id
-            else:
-                player_id = player_id[0]['id']
+            # create game_placement
+            game_placement = GamePlacement(player_id=player.id, game_id=game.id, placement=placement)
+            game_placement.save()
 
-            games_insert_sql = f"""
-            INSERT IGNORE INTO games_placements
-            (player_id,game_id,placement)
-            VALUES 
-            ({player_id},{game_id},{placement})
-                       """
-            get_db().execute(games_insert_sql)
+        # update player count
+        game.player_count = game.get_total_player_count()
+        game.save()
 
 class GamePlacement(BaseModel):
     __tablename__ = 'games_placements'
@@ -322,19 +321,21 @@ class GamePlacement(BaseModel):
         db.Integer,
         index=False,
         unique=False,
-        nullable=False
+        nullable=True
     )
     created_at = db.Column(
         db.DateTime,
         index=False,
         unique=False,
-        nullable=True
+        nullable=True,
+        default=datetime.datetime.utcnow
     )
     updated_at = db.Column(
         db.DateTime,
         index=False,
         unique=False,
-        nullable=True
+        nullable=True,
+        default=datetime.datetime.utcnow
     )
 
 class PlacementPoint(BaseModel):
@@ -367,3 +368,4 @@ class PlacementPoint(BaseModel):
         unique=False,
         nullable=False
     )
+

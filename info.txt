@@ -6,41 +6,59 @@ export FLASK_ENV=development
 for css changes to render you need to disable chrome caching in network tab
 
 
+QUERY TO FIND LOSING STREAKS:
 
+SELECT GROUP_CONCAT( ISNULL(games_placements.placement) ORDER BY games_placements.game_id ASC), players.username from games
+inner join games_placements
+on games_placements.game_id = games.id
+inner join players
+on players.id = games_placements.player_id
+AND season_id = 2
+GROUP BY games_placements.player_id
+
+
+    games = []
+for game in games:
+    if game.season_id == 2:
+        sql = f"""select COUNT(*) as total from games_placements inner join games on games.id = games_placements.game_id WHERE games.id = {game.id} group by games.id"""
+        game_result = db_fetch(sql)
+        game.player_count = game_result[0]['total']
+        game.save()
 
 poker
 pipenv shell
 flask shell
 from app.models import Game
 user_dict = {
-    'KittyKatMonk': 'NULL',
-    'Wizzeak' : 'NULL',
-    'beats9': 'NULL',
-    'Stafs101': 'NULL',
-    'JPoka19' : '4',
-    #'RohChile': 'NULL',
-    'PickaCard911': 'NULL',
-    'Steezy1133' : '2',
-    '2eTime': 'NULL',
-#     'MastaQ2412' : 'NULL',
-#     'Dommy PHD' : 'NULL',
-    'ocasillas310' : 'NULL',
-    'mantecafish209' : '1',
-#     'calendar_master' : 'NULL',
-    'jamesfelix5656' : 'NULL',
-    'ericg90' : 'NULL',
-    'Rosie601' : 'NULL',
-    'hoe_l3' : 'NULL',
-#     'javtav7' : 'NULL',
-    '_Kmiller' : 'NULL',
-    '49erjt' : '3',
-    'DeadMoney032' : 'NULL',
-#     'dpg209213' : 'NULL'
+    'KittyKatMonk': None,
+#     'Wizzeak' : None,
+    'beats9': '4',
+    'Stafs101': None,
+    'JPoka19' : None,
+#     'RohChile': None,
+    'PickaCard911': None,
+    'Steezy1133' : None,
+    '2eTime': '2',
+#     'MastaQ2412' : None,
+#     'Dommy PHD' : None,
+    'ocasillas310' : '3',
+    'mantecafish209' : None,
+    'calendar_master' : None,
+    'jamesfelix5656' : None,
+    'ericg90' : None,
+#     'Rosie601' : None,
+    'hoe_l3' : None,
+#     'javtav7' : None,
+    '_Kmiller' : '1',
+    '49erjt' : None,
+    'DeadMoney032' : None,
+#     'dpg209213' : None
+    'JRod116' : None,
+    'dsd' : None
 }
 season_id = 2
-game_number = 9
-player_count = 17
-Game.populate_game_results(user_dict, season_id, game_number, player_count, "'2020-09-13 00:00:00'")
+game_number = 12
+Game.populate_game_results(user_dict, season_id, game_number, "2020-10-04 00:00:00")
 
 
 
