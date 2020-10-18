@@ -265,7 +265,12 @@ class Game(BaseModel):
     )
 
     def get_total_player_count(self):
-        sql = f"""select COUNT(*) as total from games_placements inner join games on games.id = games_placements.game_id WHERE games.id = {self.id} group by games.id"""
+        sql = f"""
+SELECT COUNT(*) as total 
+FROM games_placements 
+INNER JOIN games ON games.id = games_placements.game_id 
+WHERE games.id = {self.id} 
+GROUP BY games.id"""
         game_result = db_fetch(sql)
         return game_result[0]['total']
 

@@ -30,35 +30,37 @@ pipenv shell
 flask shell
 from app.models import Game
 user_dict = {
-    'KittyKatMonk': None,
-#     'Wizzeak' : None,
-    'beats9': '4',
-    'Stafs101': None,
-    'JPoka19' : None,
+    'KittyKatMonk': 4,
+    'Wizzeak' : None,
+    'beats9': None,
+    'Stafs101': 2,
+#     'JPoka19' : None,
 #     'RohChile': None,
     'PickaCard911': None,
-    'Steezy1133' : None,
-    '2eTime': '2',
-#     'MastaQ2412' : None,
-#     'Dommy PHD' : None,
+    'asaltz2424': None,
+    'Steezy1133' : 1,
+    '2eTime': None,
+    'MastaQ2412' : None,
+    'Dommy PHD' : None,
     'ocasillas310' : '3',
     'mantecafish209' : None,
     'calendar_master' : None,
     'jamesfelix5656' : None,
     'ericg90' : None,
 #     'Rosie601' : None,
-    'hoe_l3' : None,
+#     'hoe_l3' : None,
 #     'javtav7' : None,
-    '_Kmiller' : '1',
-    '49erjt' : None,
+    '_Kmiller' : None,
+#     '49erjt' : None,
     'DeadMoney032' : None,
-#     'dpg209213' : None
-    'JRod116' : None,
-    'dsd' : None
+    'dpg209213' : None,
+#     'JRod116' : None,
+    'Tomcat274' : None,
+    'Solmoney209' : None,
 }
 season_id = 2
-game_number = 12
-Game.populate_game_results(user_dict, season_id, game_number, "2020-10-04 00:00:00")
+game_number = 13
+Game.populate_game_results(user_dict, season_id, game_number, "2020-10-17 00:00:00")
 
 
 
