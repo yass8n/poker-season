@@ -9,6 +9,9 @@ def get_db():
 def db_fetch(sql):
     return query_to_dict(get_db().execute(sql).fetchall())
 
+def db_execute(sql):
+    return get_db().execute(sql)
+
 def query_to_dict(ret):
     if ret is not None:
         return [{key: value for key, value in row.items()} for row in ret if row is not None]

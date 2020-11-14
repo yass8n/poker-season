@@ -1,4 +1,4 @@
-from app.db import get_db, query_to_dict, db_fetch
+from app.db import get_db, query_to_dict, db_fetch, db_execute
 from app.helpers import make_ordinal
 from app.db import db
 from app.helpers import get_datetime_from_string
@@ -126,6 +126,29 @@ class Season(BaseModel):
         nullable=True,
         default=datetime.datetime.utcnow
     )
+
+    @classmethod
+    def create_new_season(cls, season_number):
+        # season = Season()
+        # season.name = "NL Hold'Em Season " + str(season_number)
+        # season.club_id = 1
+        # season.season_number = season_number
+        # season.id = season_number
+        # season.save()
+
+        sql = f"""
+INSERT INTO placement_points
+    (placement, points, player_count, season_id)
+SELECT 
+    placement, points, player_count, {season_number}
+FROM 
+    placement_points
+WHERE 
+    season_id = {season_number - 1};
+"""
+        print(sql)
+        db_execute(sql)
+
 
     def get_season_results(self):
         sql = f"""
