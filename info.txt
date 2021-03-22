@@ -34,41 +34,50 @@ pipenv shell
 flask shell
 from app.models import Game
 user_dict = {
-    'KittyKatMonk': None,
+#     'KittyKatMonk': 3,
 #     'Wizzeak' : None,
-    'beats9': None,
-    'Stafs101': 4,
+    'beats9': 1,
+#     'Stafs101': None,
 #     'JPoka19' : None,
 #     'RohChile': None,
     'poker jay5': None,
-    'PickaCard911': None,
-    'Supersonics44': None,
+    'PickaCard911': 2,
+#     'Supersonics44': None,
 #     'asaltz2424': None,
     'Steezy1133' : None,
 #     '2eTime': None,
+#     'eanwyl': None,
 #     'MastaQ2412' : None,
-#     'Dommy PHD' : 2,
-    'ocasillas310' : None,
+    'Dommy PHD' : None,
+#     'ocasillas310' : None,
     'mantecafish209' : None,
-    'calendar_master' : None,
+#     'calendar_master' : None,
     'jamesfelix5656' : None,
-    'ericg90' : None,
+#     'ericg90' : None,
 #     'Rosie601' : None,
-    'hoe_l3' : 2,
+#     'hoe_l3' : None,
 #     'javtav7' : None,
-    '_Kmiller' : None,
-    '49erjt' : None,
+#     '_Kmiller' : None,
+#     '49erjt' : None,
     'DeadMoney032' : None,
 #     'dpg209213' : None,
-#     'JRod116' : None,
-    'Tomcat274' : 3,
-#     'eanwyl' : None,
-    'KDoT440' : 1,
+    'JRod116' : None,
+#     'Tomcat274' : None,
+#     'KDoT440' : None,
+#     'kryrion' : None,
 #     'Solmoney209' : None,
+#     'yufmastaflex' : None,
+#     'hodler123' : None,
+#     'stackzBC' : None,
+#     'ssousa2' : None,
+#     'happydylmore' : None,
+#     'cuddlycole' : 2,
+#     'SlanginJohnson' : None,
+#     'Marcusjr87' : None,
 }
-season_id = 3
-game_number = 1
-Game.populate_game_results(user_dict, season_id, game_number, "2020-11-13 00:00:00")
+season_id = 4
+game_number = 18
+Game.populate_game_results(user_dict, season_id, game_number, "2021-01-29 00:00:00")
 
 
 

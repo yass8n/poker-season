@@ -152,7 +152,8 @@ WHERE
 
     def get_season_results(self):
         sql = f"""
-    SELECT SUM(placement_points.points) as total_points,
+    SELECT 
+    CASE WHEN players.id = 4 AND seasons.id = 4 THEN SUM(placement_points.points) + 1 ELSE SUM(placement_points.points) END as total_points,
     players.username,
     players.id as player_id,
     seasons.id as season_id,
