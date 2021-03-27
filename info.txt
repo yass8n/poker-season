@@ -36,12 +36,12 @@ from app.models import Game
 user_dict = {
 #     'KittyKatMonk': 3,
 #     'Wizzeak' : None,
-    'beats9': 1,
-#     'Stafs101': None,
+    'beats9': None,
+    'Stafs101': 2,
 #     'JPoka19' : None,
 #     'RohChile': None,
-    'poker jay5': None,
-    'PickaCard911': 2,
+    'poker jay5': 1,
+    'PickaCard911': None,
 #     'Supersonics44': None,
 #     'asaltz2424': None,
     'Steezy1133' : None,
@@ -49,9 +49,9 @@ user_dict = {
 #     'eanwyl': None,
 #     'MastaQ2412' : None,
     'Dommy PHD' : None,
-#     'ocasillas310' : None,
-    'mantecafish209' : None,
-#     'calendar_master' : None,
+    'ocasillas310' : None,
+#     'mantecafish209' : None,
+    'calendar_master' : None,
     'jamesfelix5656' : None,
 #     'ericg90' : None,
 #     'Rosie601' : None,
@@ -61,7 +61,7 @@ user_dict = {
 #     '49erjt' : None,
     'DeadMoney032' : None,
 #     'dpg209213' : None,
-    'JRod116' : None,
+#     'JRod116' : None,
 #     'Tomcat274' : None,
 #     'KDoT440' : None,
 #     'kryrion' : None,
@@ -71,12 +71,12 @@ user_dict = {
 #     'stackzBC' : None,
 #     'ssousa2' : None,
 #     'happydylmore' : None,
-#     'cuddlycole' : 2,
+#     'cuddlycole' : None,
 #     'SlanginJohnson' : None,
-#     'Marcusjr87' : None,
+    'Marcusjr87' : None,
 }
 season_id = 4
-game_number = 18
+game_number = 21
 Game.populate_game_results(user_dict, season_id, game_number, "2021-01-29 00:00:00")
 
 
