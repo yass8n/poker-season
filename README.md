@@ -23,5 +23,11 @@ We play online at [pokerstars.net](www.pokerstars.net) which doesn't offer an op
 You can visit the website [here](https://poker-season-app.herokuapp.com/season/2). Please excuse the UI, it's not my passion ;) 
 
 Lastly, Since it is hosted for free on heroku, the server will go to sleep after 30 minutes of inactivity. So expect slow response times for the initial request
+_____
+Copyright © Yaseen Aniss 2023
+
+All rights reserved. No part of this code may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the copyright owner, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law.
+
+For permission requests, please contact anissyaseen@gmail.com
 
 
